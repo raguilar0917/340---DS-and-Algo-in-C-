@@ -6,14 +6,14 @@ class TicTacToe {
 
 private:
    enum Status {WIN, DRAW, CONTINUE};
-   std::array<std::array<int, 3>, 3> board;
+   std::array<std::array<char, 3>, 3> board;
 
 public:
    TicTacToe();
    void makeMove();
    void printBoard() const;
    bool validMove(int, int) const;
-   bool xoMove(int); // x o move
+   bool xoMove(char); // x o move
    Status gameStatus() const;
 
 };
