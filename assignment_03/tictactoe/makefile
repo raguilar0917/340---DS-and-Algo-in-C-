@@ -1,3 +1,3 @@
 all:
-	g++ main.cpp TicTacToe.cpp -o main && ./main
+	g++ -std=c++11 main.cpp TicTacToe.cpp -o main && ./main
 	 
