@@ -1,21 +1,21 @@
-#ifndef ARRAYSTACK_H
-#define ARRAYSTACK_H
-
+#ifndef _ARRAY_STACK
+#define _ARRAY_STACK
 #include "StackInterface.h"
-
-template <class ItemType>
-class arrayStack : public StackInterface<ItemType>{
+const int DEFAULT_SIZE = 6;
+template< class ItemType>
+class ArrayStack : public StackInterface<ItemType>
+{
     private:
-        int DEFAULT_SIZE = 6;
-        int top;
-        ItemType *items = new ItemType[DEFAULT_SIZE];
-
+    int capacity;
+    ItemType* items; // Array of stack items
+    int top; 
     public:
-        arrayStack();
-        bool pop();
-        bool push(const ItemType& newEntry);
-        bool isEmpty() const;
-        ItemType peek() const;
-
-};
+    ArrayStack(); // Default constructor
+    bool isEmpty() const;
+    bool push( const ItemType& newEntry);
+    bool pop();
+    ItemType peek() const;
+    int sizeOfStack();
+}; // end ArrayStack
+#include "ArrayStack.cpp"
 #endif
