@@ -1,55 +1,31 @@
 #include <iostream>
 #include <string>
 #include "ArrayStack.h"
-void removeNonLetters(string&);
-bool isPalindrome(ArrayStack<char>* stackPtr, string str);
 using namespace std;
 
+void removeNonLetters(string&);//prototype function to remove all the non-letters in a string
+
 int main() {
-  bool flag = true;
   ArrayStack<char>* stackPtr = new ArrayStack<char>();
+  string Str, rStr, originalStr;
 
-  string str = "A man, a plan, a canal: Panama";
-  removeNonLetters(str);
-  cout<<str<<endl;
+  cout<<"Please enter a string you want to check if it's a palindrome: ";
+  getline(cin, Str);
+  originalStr = Str;
+  removeNonLetters(Str);
+  cout<<Str<<endl;
 
-  for(int i = 0; i < str.length(); i++){
-    stackPtr->push(str[i]);
-    cout<<stackPtr->sizeOfStack()<<": "<<stackPtr->peek()<<endl;
+  for(int i = 0; i < Str.length(); i++){
+    stackPtr->push(Str[i]);
   }
-
-  for(int i = 0; i < str.length(); i++){
-    char a = stackPtr->peek();
-    cout<<a;
+  for(int i = 0; i < Str.length(); i++){
+    rStr += stackPtr->peek();
     stackPtr->pop();
   }
-  //cout<<isPalindrome(stackPtr, str)<<endl;
+  cout<<rStr<<endl;
+  (Str == rStr)?(cout<<"''"<<originalStr<<"'' is a Palindrome"):(cout<<originalStr<<"is NOT a Palindrome");
 
 }
-bool isPalindrome(ArrayStack<char>* stackPtr, string str){
-  bool flag = true;
-  int sizeOfStack = stackPtr->sizeOfStack();
-
-  for(int i = 0; i < str.length(); i++){
-    stackPtr->push(str[i]);
-  }
-
-  for(int i = 0; i < str.length(); i++){
-    if(stackPtr->peek() == str[i]){
-      cout<<stackPtr->peek()<<" == "<<str[i]<<endl;
-      stackPtr->pop();
-    }
-    else{
-      cout<<stackPtr->peek()<<" != "<<str[i]<<endl;
-
-      flag = false;
-      break;
-    }
-  }
-
-  return flag;
-}
-
 void removeNonLetters(string& str){
     for(int i = 0; i < str.length(); i++){
         if(((str[i] < 'A') || (str[i] > 'Z')) && ((str[i] < 'a') || (str[i] > 'z'))){
