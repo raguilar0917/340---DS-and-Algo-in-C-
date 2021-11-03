@@ -1,0 +1,66 @@
+
+---------------------------------
+Test replace
+---------------------------------
+List 1: Mon(1) -> Tue(2) -> Wed(3) -> thu(4) -> Fri(5) -> nullptr
+Replace `thu` with `Thu`
+The replaced item: thu
+List 1: Mon(1) -> Tue(2) -> Wed(3) -> Thu(4) -> Fri(5) -> nullptr
+
+Test list1's replace at position getLength()+2 = 7
+Caught an exception replacing list1 at position 7
+
+List 2: Sat(1) -> sun(2) -> nullptr
+Replace `sun` with `Sun`
+The replaced item: sun
+List 2: Sat(1) -> Sun(2) -> nullptr
+
+---------------------------------
+Test copy constructor
+---------------------------------
+Create list 3 as a copy of list 2 
+List 3: Sat(1) -> Sun(2) -> nullptr
+Add `Mon` to end of list 3
+List 2: Sat(1) -> Sun(2) -> Mon(3) -> nullptr
+List 3: Sat(1) -> Sun(2) -> nullptr
+Clear list 2 
+List 2: nullptr
+List 3: Sat(1) -> Sun(2) -> nullptr
+
+---------------------------------
+Test operator+
+---------------------------------
+Assign list4 = list3 + list1 + list3
+List 4: Sat(1) -> Sun(2) -> Mon(3) -> Tue(4) -> Wed(5) -> Thu(6) -> Fri(7) -> Sat(8) -> Sun(9) -> nullptr
+Remove the first node
+List 4: Sun(1) -> Mon(2) -> Tue(3) -> Wed(4) -> Thu(5) -> Fri(6) -> Sat(7) -> Sun(8) -> nullptr
+Remove the last node
+List 4: Sun(1) -> Mon(2) -> Tue(3) -> Wed(4) -> Thu(5) -> Fri(6) -> Sat(7) -> nullptr
+
+---------------------------------
+Test assignment operator
+---------------------------------
+List 1: Mon(1) -> Tue(2) -> Wed(3) -> Thu(4) -> Fri(5) -> nullptr
+Assign list5 = list1
+List 1: Mon(1) -> Tue(2) -> Wed(3) -> Thu(4) -> Fri(5) -> nullptr
+List 5: Mon(1) -> Tue(2) -> Wed(3) -> Thu(4) -> Fri(5) -> nullptr
+After removing third node of list1: 
+List 1: Mon(1) -> Tue(2) -> Thu(3) -> Fri(4) -> nullptr
+List 5: Mon(1) -> Tue(2) -> Wed(3) -> Thu(4) -> Fri(5) -> nullptr
+Now assign list2 = list5 = list1
+List 1: Mon(1) -> Tue(2) -> Thu(3) -> Fri(4) -> nullptr
+List 2: Mon(1) -> Tue(2) -> Thu(3) -> Fri(4) -> nullptr
+List 5: Mon(1) -> Tue(2) -> Thu(3) -> Fri(4) -> nullptr
+
+---------------------------------
+Test operator==
+---------------------------------
+Create list6 out of weekdays, then replace `thu` with `Thu`: 
+list6: Mon(1) -> Tue(2) -> Wed(3) -> Thu(4) -> Fri(5) -> nullptr
+Add `Sun` as the first node and `Sat` as the last node
+list6: Sun(1) -> Mon(2) -> Tue(3) -> Wed(4) -> Thu(5) -> Fri(6) -> Sat(7) -> nullptr
+list4: Sun(1) -> Mon(2) -> Tue(3) -> Wed(4) -> Thu(5) -> Fri(6) -> Sat(7) -> nullptr
+Comparing list6 and list4
+list6 == list4: as expected
+
+
