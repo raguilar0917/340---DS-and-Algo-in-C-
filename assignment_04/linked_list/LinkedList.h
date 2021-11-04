@@ -77,7 +77,25 @@ LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0)
 
 ///TODO: your implementation of copy constructor
 
+template <class ItemType>
+LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList){
+  Node<ItemType* newNode;
+  if(aList.headPtr != nullptr){
+    headPtr = aList.headPtr;
+  }
+  
+  Node<ItemType>* temp = headPtr->item;
+  while(temp!=nullptr){
+    temp = 
+
+  }
+  
+}
+
 ///TODO: your implementation of assignment operator
+template<class friendItemType>
+LinkedList<friendItemType>& LinkedList<friendItemType>::operator=(const LinkedList<friendItemType>& rhs){  ///TODO
+}
 
 ///TODO: your implementation of operator+
 

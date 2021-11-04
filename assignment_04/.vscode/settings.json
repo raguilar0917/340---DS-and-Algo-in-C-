@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "memory": "c",
+        "system_error": "c",
+        "typeinfo": "c",
+        "utility": "c",
+        "xtr1common": "c",
+        "xutility": "c"
+    }
+}
